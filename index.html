@@ -1,21 +1,110 @@
 <!doctype html>
+<html lang="en" ng-app="battleApp">
 
-<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Battle Force</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="js/app.js"></script>
 
-    <head>
-      <meta charset="utf-8">
-      <title>Clouds</title>
-      <meta name="description" content="clouds of the past">
-      <meta name="author" content="theLephty">
-      <link rel="stylesheet" href="css/styles.css?v=1.0">
-    </head>
+</head>
 
-    <body>
-        <h1>Clouds.</h1>
-        <p>Hi person! Clouds like clicks!</p>
-        <link>Why Clouds.</link><br>
-        <link>How to Clouds.</link>
-      <script src="js/scripts.js"></script>
-    </body>
+<body ng-controller="MainController">
+    <div ng-hide="liveInfo.livePlayers">
+        <label>Number of Players:
+            <input type="number" name="input" ng-model="playerNum" min="2" max="6" required>
+        </label>
+
+
+
+
+        <form name="namePlayer" ng-submit="setup(playerNum, username01, username02, username03, username04, username05, username06)">
+            <input type="search" required placeholder="Player 1" ng-model="username01" />
+
+            <input type="search" required placeholder="Player 2" ng-model="username02" />
+
+            <input ng-hide="playerNum < 3" type="search" placeholder="Player 3"  ng-model="username03"><br/></input>
+
+            <input ng-hide="playerNum < 4" type="search" placeholder="Player 4" ng-model="username04" />
+
+            <input ng-hide="playerNum < 5" type="search" placeholder="Player 5" ng-model="username05" />
+
+            <input ng-hide="playerNum < 6" type="search" placeholder="Player 6" ng-model="username06"><br/></input>
+
+            <input type="submit" value="Deal Cards!">
+
+            <br/>
+            <br/>
+        </form>
+    </div>
+    <div ng-show="liveInfo.livePlayers">
+        <!--    <label>Filter Cards:
+        <input type="number" name="input" ng-model="card.value" min="1" max="13" required>
+    </label>
+    <br/>
+    <br/>
+    -->
+
+
+
+        <button ng-click="playGame()">Battle!</button>
+        <br/>
+        <br/> Order:
+        <select ng-model="playerSortOrder">
+            <option value="+name">Name</option>
+            <option value="-hand.length + discard.length">Card Count</option>
+            <option value="-wins">Wins</option>
+            <option value="-hand[0].num">High Card</option>
+        </select>
+        <p></p>
+
+        <table id="players">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Cards</th>
+                    <th>Wins</th>
+                    <th>Win%</th>
+                    <th>Card 1</th>
+                    <th>Card 2</th>
+                    <th>Card 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="player in liveInfo.livePlayers | orderBy:playerSortOrder">
+                    <td>{{player.name}}</td>
+                    <td>{{player.hand.length + player.discard.length | number}}</td>
+                    <td>{{player.wins | number}}</td>
+                    <td>{{player.wins / liveInfo.rounds * 100 | number:2}}%</td>
+
+                    <!--  <p>Health: {{player.hand.length + player.discard.length}}</p>
+<p>Card: {{player.hand[0].num}} of {{player.hand[0].suit}}</p>  -->
+                    <td ng-repeat="cards in player.hand  | filter:card.value : true | limitTo:3"><b>{{cards.num}} </b>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <div ng-show="liveInfo.livePlayers">
+
+            <br/> Rounds: {{liveInfo.rounds}}
+            <br/> Shuffles: {{liveInfo.shuffles}}
+            <br/> {{liveInfo.cardCount()}}
+            <br/>
+            <br/>
+        </div>
+
+    </div>
+</body>
 
 </html>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+<script type="text/javascript" <!-- Include all compiled plugins (below), or include individual files as needed -->
+    < /body> < /html >

@@ -1,0 +1,32 @@
+/* app css stylesheet */
+
+body {
+    padding-top: 40px;
+    padding-left: 40px;
+}
+
+#players {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 600px;
+    border-collapse: collapse;
+}
+
+#players td, #players th {
+    font-size: 1.1em;
+    border: 1px solid #98bf21;
+    padding: 3px 7px 2px 7px;
+}
+
+#players th {
+    font-size: 1.2em;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #A7C942;
+    color: #ffffff;
+}
+
+#players tr.alt td {
+    color: #000000;
+    background-color: #EAF2D3;
+}
