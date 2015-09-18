@@ -1,33 +1,32 @@
 {
     "PDs": [{
-        "name": "Something Clouds 01",
+        "name": "Rock",
         "image": "http://thelephty.github.io/clouds/images/001.jpg",
         "visions": ["one", "two", "three"]
     }, {
-        "name": "Something Clouds 02",
+        "name": "Tree",
         "image": "http://thelephty.github.io/clouds/images/002.jpg",
         "visions": ["one", "two", "three"]
     }, {
-        "name": "Something Clouds 03",
+        "name": "Squash",
         "image": "http://thelephty.github.io/clouds/images/003.jpg",
         "visions": ["one", "two", "three"]
     }, {
-        "name": "Something Clouds 04",
+        "name": "Building",
         "image": "http://thelephty.github.io/clouds/images/004.jpg",
         "visions": ["one", "two", "three"]
     }, {
-        "name": "Something Clouds 05",
+        "name": "Oil Warmer",
         "image": "http://thelephty.github.io/clouds/images/005.jpg",
         "visions": ["one", "two", "three"]
     }, {
-        "name": "Something Clouds 06",
+        "name": "Home",
         "image": "http://thelephty.github.io/clouds/images/006.jpg",
         "visions": ["tree", "plane", "bird"]
     }, {
-        "name": "Something Clouds 07",
+        "name": "The Country",
         "image": "http://thelephty.github.io/clouds/images/007.jpg",
         "visions": ["1", "2", "3"]
     }]
 
 }
-
