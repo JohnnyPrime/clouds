@@ -21,7 +21,7 @@
     <script>
         var app = angular.module('myApp', []);
         app.controller('parryDoiliesCtrl', function ($scope, $http) {
-            $http.get("thelephty.github.io/clouds/json/parryDoilies.json")
+            $http.get("http://thelephty.github.io/clouds/json/parryDoilies.json")
                 .success(function (response) {
                     $scope.names = response.PDs;
                 });
